@@ -104,7 +104,7 @@ Intelligent multi-criteria filtering system:
 
 ## Developed By
 
-Devansh Sharma & Abhinav
+Sumanshu Jindal
 
 ---
 
