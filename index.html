@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Network Traffic Analysis System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div id="particles"></div>
+</head>
+<body>
+
+<header>
+    <h1>Network Traffic Analysis System</h1>
+    <p>Wireshark-style filtering & anomaly detection</p>
+</header>
+
+<section class="controls">
+    <input type="text" id="filterInput" placeholder="Filter: tcp | http | anomaly | ip.src ==">
+
+    <button onclick="generatePacket()">Capture Packet</button>
+    <button class="attack-btn" onclick="toggleDDoS()">DDoS Mode</button>
+    <button class="attack-btn" onclick="togglePortScan()">Port Scan</button>
+    <button onclick="exportPCAP()">Export PCAP</button>
+
+    <span id="liveIndicator">● LIVE</span>
+</section>
+
+<section class="dashboard">
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Source IP</th>
+                <th>Destination IP</th>
+                <th>Protocol</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="packetTable"></tbody>
+    </table>
+</section>
+
+<section class="charts">
+    <div>
+        <h3 style="text-align:center; margin-bottom:10px;">Packet Rate</h3>
+        <canvas id="packetChart"></canvas>
+    </div>
+
+    <div>
+        <h3 style="text-align:center; margin-bottom:10px;">Anomaly Distribution</h3>
+        <canvas id="anomalyChart"></canvas>
+    </div>
+</section>
+
+<footer>
+    <p>Developed by Devansh Sharma & Abhinav | Network Security Project</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

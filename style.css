@@ -1,0 +1,223 @@
+/* ---------- ANIMATED BACKGROUND GRID ---------- */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        linear-gradient(transparent 95%, rgba(59,130,246,0.08) 96%),
+        linear-gradient(90deg, transparent 95%, rgba(59,130,246,0.08) 96%);
+    background-size: 60px 60px;
+    animation: gridMove 20s linear infinite;
+    z-index: -2;
+}
+
+@keyframes gridMove {
+    from {
+        background-position: 0 0, 0 0;
+    }
+    to {
+        background-position: 300px 300px, 300px 300px;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: radial-gradient(circle at top, #020617, #000814);
+    color: #e5e7eb;
+}
+
+/* ---------- HEADER ---------- */
+header {
+    text-align: center;
+    padding: 35px 20px;
+    background: linear-gradient(180deg, #020617, #020617dd);
+    border-bottom: 1px solid #1e293b;
+}
+
+header h1 {
+    font-size: 2.4rem;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+header p {
+    font-size: 1rem;
+    color: #94a3b8;
+}
+
+/* ---------- CONTROL PANEL ---------- */
+.controls {
+    margin: 25px auto;
+    width: 95%;
+    padding: 20px;
+    background: #020617;
+    border-radius: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+}
+
+.controls input {
+    width: 260px;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    background: #020617;
+    color: #e5e7eb;
+    border: 1px solid #1e293b;
+}
+
+.controls input::placeholder {
+    color: #64748b;
+}
+
+/* ---------- BUTTONS ---------- */
+button {
+    padding: 14px 22px;
+    border-radius: 12px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+button:not(.attack-btn) {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #020617;
+}
+
+.attack-btn {
+    background: linear-gradient(135deg, #ef4444, #b91c1c);
+    color: white;
+}
+
+/* ---------- LIVE INDICATOR ---------- */
+#liveIndicator {
+    margin-left: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ef4444;
+    visibility: hidden;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* ---------- TABLE CARD ---------- */
+.dashboard {
+    width: 95%;
+    margin: 25px auto;
+    background: #020617;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #020617;
+    border-bottom: 1px solid #1e293b;
+}
+
+th {
+    padding: 14px;
+    font-size: 0.95rem;
+    color: #93c5fd;
+}
+
+td {
+    padding: 12px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #020617;
+}
+
+tbody tr:hover {
+    background: #020617aa;
+}
+
+.safe {
+    color: #22c55e;
+    font-weight: bold;
+}
+
+.anomaly {
+    color: #ef4444;
+    font-weight: bold;
+}
+
+/* ---------- CHARTS ---------- */
+.charts {
+    width: 95%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.charts canvas {
+    background: #020617;
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #cbd5f5;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+}
+#particles {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(59,130,246,0.4);
+    border-radius: 50%;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(-10vh);
+        opacity: 1;
+    }
+}
